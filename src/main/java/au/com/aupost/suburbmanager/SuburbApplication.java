@@ -10,4 +10,5 @@ public class SuburbApplication {
         SpringApplication.run(SuburbApplication.class, args);
     }
 
+    
 }

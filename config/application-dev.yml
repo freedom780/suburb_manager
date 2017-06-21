@@ -1,13 +1,15 @@
 spring:
   datasource:
+    initialize: false
     url: "jdbc:mysql://localhost/suburb_manager"
     username: root
     password:
     driver-class-name: com.mysql.jdbc.Driver
-  
-  hateoas:
-     use-hal-as-default-json-media-type: false
 
+  jpa:
+    hibernate:
+      ddl-auto: none
+      
   hibernate: 
     dialect: "org.hibernate.dialect.MySQL5Dialect" 
      

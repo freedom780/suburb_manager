@@ -9,8 +9,9 @@ import org.junit.Test;
 
 public class SuburbTest {
 
-    private static final String SUBURB_NAME = "Warranwood";
-    private static final int POST_CODE = 3134;
+    private static final String SUBURB_NAME = "Melbourne";
+    private static final int POST_CODE = 3000;
+    private static final long SUBURB_ID = 1;
 
     @Test
     public void instantiate() {
@@ -20,6 +21,27 @@ public class SuburbTest {
 
         // verify
         assertThat(suburb, is(not(nullValue())));
+    }
+    
+    
+    @Test
+    public void getId() {
+        
+        // setup fixture
+        PostCode postCode = createPostCode(POST_CODE);
+        Suburb suburb = new Suburb(SUBURB_NAME, postCode);
+        suburb.setId(SUBURB_ID);
+        
+        // exercise SUT
+        Long id = suburb.getId();
+        
+        // verify
+        assertThat(id, is(SUBURB_ID));
+    }
+
+
+    private PostCode createPostCode(int code) {
+        return new PostCode(code);
     }
 
 }

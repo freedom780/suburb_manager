@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "post_codes")
@@ -16,10 +17,12 @@ public class PostCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
 
+    @NotNull
     @Column(name = "code")
-    private int code;
+    private Integer code;
     
     @OneToMany(mappedBy="postCode")
     private List<Suburb> suburbs;
@@ -29,7 +32,7 @@ public class PostCode {
         super();
     }
 
-    public PostCode(int code) {
+    public PostCode(Integer code) {
         super();
         this.code = code;
     }
@@ -46,12 +49,18 @@ public class PostCode {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
     public List<Suburb> getSuburbs() {
         return suburbs;
     }
+
+    @Override
+    public String toString() {
+        return "PostCode [id=" + id + ", code=" + code + "]";
+    }
+ 
     
 }
