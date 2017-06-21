@@ -9,11 +9,13 @@ import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Transactional
 public abstract class ApiServiceTest {
-    
+
     protected static final int PAGE_SIZE = 20;
 
     @LocalServerPort
@@ -27,6 +29,5 @@ public abstract class ApiServiceTest {
     protected void buildBaseUrl() throws MalformedURLException {
         this.baseUrl = new URL("http://localhost:" + port + "/");
     }
-
 
 }

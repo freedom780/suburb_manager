@@ -7,20 +7,14 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
-import au.com.aupost.suburbmanager.api.services.common.ApiServiceTest;
 import au.com.aupost.suburbmanager.model.Suburb;
 
-public class GetSuburbsTest extends ApiServiceTest {
+public class GetSuburbsTest extends SuburbTest {
 
-    private static final int TOTAL_NUMBER_OF_SUBURBS = 35;
-
-    private static final int FIRST_PAGE_SIZE = PAGE_SIZE;
-    private static final int SECOND_PAGE_SIZE = TOTAL_NUMBER_OF_SUBURBS - PAGE_SIZE;
 
     @Before
     public void setUp() throws Exception {
@@ -38,7 +32,7 @@ public class GetSuburbsTest extends ApiServiceTest {
 
         // verify
         Collection<Suburb> suburbs = entity.getBody().getContent();
-        assertThat(suburbs.size(), equalTo(FIRST_PAGE_SIZE));
+        assertThat(suburbs.size(), equalTo(PAGE_SIZE));
 
     }
 
@@ -53,20 +47,13 @@ public class GetSuburbsTest extends ApiServiceTest {
 
         // verify
         Collection<Suburb> suburbs = entity.getBody().getContent();
-        assertThat(suburbs.size(), equalTo(SECOND_PAGE_SIZE));
+        int numberOfSuburbs = (int) suburbRepository.count();
+        assertThat(suburbs.size(), equalTo(numberOfSuburbs - PAGE_SIZE));
     }
 
     private String buildSecondPageUrl() {
         return buildSuburbsServiceUrl() + "?page=1&size=" + PAGE_SIZE;
     }
 
-    private ParameterizedTypeReference<Resources<Suburb>> createTypeReference() {
-        return new ParameterizedTypeReference<Resources<Suburb>>() {
-        };
-    }
-
-    private String buildSuburbsServiceUrl() {
-        return baseUrl.toString() + "suburbs";
-    }
 
 }
