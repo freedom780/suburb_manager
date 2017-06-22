@@ -1,8 +1,8 @@
-package au.com.aupost.suburbmanager.api.services.postcode;
+package au.com.aupost.suburbmanager.api.services.postcode.db;
 
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.MELBOURNE;
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.MELBOURNE_POSTCODE_COUNT;
-import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.NEW_POST_CODE;
+import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.NEW_POST_CODE_2000;
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.NON_EXISTING_SUBURB;
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.ONE_NEWLY_ADDED_POST_CODE;
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.RINGWOOD;
@@ -80,7 +80,7 @@ public class PostCodeRepositoryTest {
     public void save() {
         
         // setup fixture
-        PostCode postCode = new PostCode(NEW_POST_CODE, PostCodeCategory.DELIVERY);
+        PostCode postCode = new PostCode(NEW_POST_CODE_2000, PostCodeCategory.DELIVERY);
 
         // exercise SUT
         postCodeRepository.save(postCode);

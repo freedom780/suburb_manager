@@ -1,4 +1,4 @@
-package au.com.aupost.suburbmanager.api.services.postcode;
+package au.com.aupost.suburbmanager.api.services.postcode.integration;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;

@@ -1,4 +1,4 @@
-package au.com.aupost.suburbmanager.api.services.postcode;
+package au.com.aupost.suburbmanager.api.services.postcode.integration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;

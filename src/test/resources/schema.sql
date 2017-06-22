@@ -13,7 +13,8 @@ create table suburbs (
 	name varchar(255) not null,
 	state_territory varchar(3) not null,
 	post_code_id bigint not null, 
-	primary key (id)
+	primary key (id),
+	unique key (post_code_id, name)
 );
 
 alter table suburbs add constraint FK_POST_CODE foreign key (post_code_id) references post_codes;

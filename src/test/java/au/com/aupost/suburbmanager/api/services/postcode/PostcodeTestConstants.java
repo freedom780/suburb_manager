@@ -7,7 +7,8 @@ public class PostcodeTestConstants {
     
     public static final int ONE_NEWLY_ADDED_POST_CODE = 1;
 
-    public static final int NEW_POST_CODE = 3136;
+    public static final int NEW_POST_CODE_3136 = 3136;
+    public static final int NEW_POST_CODE_2000 = 2000;
     
     public static final String MELBOURNE = "Melbourne";
     public static final int MELBOURNE_POSTCODE_COUNT = 29;

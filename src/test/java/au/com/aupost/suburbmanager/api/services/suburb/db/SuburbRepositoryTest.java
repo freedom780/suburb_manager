@@ -1,4 +1,4 @@
-package au.com.aupost.suburbmanager.api.services.suburb;
+package au.com.aupost.suburbmanager.api.services.suburb.db;
 
 import static au.com.aupost.suburbmanager.api.services.suburb.SuburbTestConstants.NEW_SUBURB_NAME;
 import static au.com.aupost.suburbmanager.api.services.suburb.SuburbTestConstants.NEW_SUBURB_POST_CODE;
