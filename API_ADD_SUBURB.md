@@ -25,6 +25,7 @@ Adds a suburb.
    ```
   
   **Required:**
+
   `name=[string]`
   
   `state=[string]`
@@ -34,8 +35,9 @@ Adds a suburb.
 
 * **Success Response:**
   * **Code:** 200
-   **Content:** 
-```json
+  
+    **Content:** 
+    ```json
   {
     "name": "Warranwood",
     "state": "VIC",
@@ -51,19 +53,19 @@ Adds a suburb.
         }
     }
 }
-``` 
+     ``` 
 * **Error Response:**
   
   * **Code:** 400 BAD REQUEST
 
     **Content**
-```json    
+    ```json    
 {
     "httpStatus": "409 - CONFLICT",
     "errorCode": "2e482454-5148-4bf4-9ab7-84c7f65b318f",
     "errorMessage": "Data integrity violation error. Please contact an administrator and quote '2e482454-5148-4bf4-9ab7-84c7f65b318f'"
 }
-```
+     ```
 
 * **Sample Call:**
   ```
