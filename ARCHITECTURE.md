@@ -5,9 +5,9 @@ The following frameworks and technologies have been selected to implement the ap
 | ------ | ------ |
 | [Spring Boot](https://projects.spring.io/spring-boot/) | Spring Application Framework in addition to Spring Boot has been selected for streamlining the development process|
 | [Spring Data Rest](http://projects.spring.io/spring-data-rest/) |  This Spring module is used to minimise the amount of boilerplate code around REST API endpoints and persistence  |
-| [Spring Security](https://projects.spring.io/spring-security/) + [Spring OAuth] (http://projects.spring.io/spring-security-oauth/)|  Security Framework |
+| [Spring Security](https://projects.spring.io/spring-security/) + [Spring OAuth](http://projects.spring.io/spring-security-oauth/)|  Security Framework |
 | [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) (Hypermedia as the Engine of Application State)  |  For stricter REST compliance including navigation and pagination and more control on the server side |
-|JWT (JSON web token) format | Refer to [official documentation](https://tools.ietf.org/html/rfc7519) |
+|[JWT](https://tools.ietf.org/html/rfc7519) (JSON web token) format | Refer to [official documentation](https://tools.ietf.org/html/rfc7519) |
 |[JPA](http://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) / [Hibernate](http://hibernate.org/)| Persistence |
 |[JSR - 303](http://beanvalidation.org/1.0/spec/) Bean Validation | Validation technology at the domain model class field level |
 |Error & Exception Handling| Spring ResponseEntityExceptionHandler and ControllerAdvice features are used for fine-tuning error and exception handling |
