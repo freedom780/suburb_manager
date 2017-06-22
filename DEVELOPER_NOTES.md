@@ -3,6 +3,27 @@
 ## Build Technology
 Gradle is used as a build automation system. Refer to [build.gradle](build.gradle) for more details on how the application is built.  
 
+## Full End-To-End Integration Tests
+
+### How It Works
+
+Integration tests use a [reusable OAuth access token retrieval artefact](src/test/java/au/com/aupost/suburbmanager/api/services/oauth/OAuthAccessTokenRetriever.java) for emulating OAuth 2.0 Authorisation Code flow phases as described in [Architecture document](ARCHITECTURE.md):
+
+- emulate redirect to user authorization page
+- emulate user accepting authorization prompt
+- exchange authorisation code for access token
+
+The artefact is used to retrieve the JWT access token which is used in every single REST API integration test for secure access to protected resources.  
+
+ 
+### Scenarios
+A full end-to-end REST integration test stack for the whole OAuth Authorisation Code Flow is available covering the following scenarios:
+
+- Unrestricted retrieval of suburbs and postcodes as described in [API Documentation](API_DOCUMENTATION.md)
+- Secured access to adding suburb and post code combinations as described in [API Documentation](API_DOCUMENTATION.md) including:
+  - happy day scenarios
+  - errors 
+
 ## Configuration Management
 The application-dev.yml configuration file is used for development purpose only and is located outside of the main build folder structure to prevent it from being packaged into the build. 
 
@@ -17,7 +38,7 @@ Database schema and initial data are located in the [src/main/db](src/main/db) f
 | Package | Description |
 | ------ | ------ |
 | [api/error](src/main/java/au/com/aupost/suburbmanager/api/error) | Global error & Exception handling |
-| [api/security](src/main/java/au/com/aupost/suburbmanager/api/error) | Security layer|
+| [api/security](src/main/java/au/com/aupost/suburbmanager/api/security) | Security layer|
 | [api/services](src/main/java/au/com/aupost/suburbmanager/api/services) | Spring Data Rest repositories |
 | [api/validator](src/main/java/au/com/aupost/suburbmanager/api/validator) | Adapter for non-trivial custom validators |
 | [model](src/main/java/au/com/aupost/suburbmanager/model) | Domain Model layer | 
@@ -30,11 +51,3 @@ Database schema and initial data are located in the [src/main/db](src/main/db) f
 | [model](src/test/java/au/com/aupost/suburbmanager/model) | Domain model tests|
 
 
-## Full End-To-End Integration Tests
-
-A full end-to-end integration test stack for the whole OAuth Authorisation Code is available covering the following scenarios:
-
-- Unrestricted retrieval of suburbs and postcodes as described in [API Documentation](API_DOCUMENTATION.md)
-- Secured access to adding suburb and post code combinations as described in [API Documentation](API_DOCUMENTATION.md) including:
-  - happy day scenarios
-  - errors 
