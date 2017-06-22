@@ -14,8 +14,7 @@ Returns all suburbs matching a specified post code.
 
 *  **URL Params**
 
-  **Required:**
- 
+   **Required:**
    `postCode=[integer]` 
    
 * **Data Params**
@@ -24,7 +23,8 @@ Returns all suburbs matching a specified post code.
 
 * **Success Response:**
   * **Code:** 200
-   **Content:** 
+  
+    **Content:** 
 ```json
 {
     "_embedded": {
@@ -101,6 +101,7 @@ Returns all suburbs matching a specified post code.
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST
+  
     **Content:**
 
 ```json
