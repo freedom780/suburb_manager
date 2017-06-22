@@ -13,19 +13,28 @@ Database schema and initial data are located in the [src/main/db](src/main/db) f
 
 ## Project Structure
 
+### Source Code Structure
 | Package | Description |
 | ------ | ------ |
-| [api.error](src/main/java/au/com/aupost/suburbmanager/api/error) | Global error & Exception handling |
-| api.security(src/main/java/au/com/aupost/suburbmanager/api/error) | Security machinery |
+| [api/error](src/main/java/au/com/aupost/suburbmanager/api/error) | Global error & Exception handling |
+| [api/security](src/main/java/au/com/aupost/suburbmanager/api/error) | Security layer|
+| [api/services](src/main/java/au/com/aupost/suburbmanager/api/services) | Spring Data Rest repositories |
+| [api/validator](src/main/java/au/com/aupost/suburbmanager/api/validator) | Adapter for non-trivial custom validators |
+| [model](src/main/java/au/com/aupost/suburbmanager/model) | Domain Model layer | 
+
+### Test Code Structure
+| Package | Description |
+| ------ | ------ |
+| [api/error](src/test/java/au/com/aupost/suburbmanager/api/error) | Global error & Exception handling unit tests |
+| [api/services](src/test/java/au/com/aupost/suburbmanager/api/services) | Services integration tests (including both REST integration and DB integration tests)|
+| [model](src/test/java/au/com/aupost/suburbmanager/model) | Domain model tests|
 
 
-## Tests
+## Full End-To-End Integration Tests
 
-### Full End-To-End Integration Tests
+A full end-to-end integration test stack for the whole OAuth Authorisation Code is available covering the following scenarios:
 
-A full end-to-end integration test stack for the whole OAuth Authorisation Code flow has been introduced. 
- 
-
-### Unit Tests
-
-
+- Unrestricted retrieval of suburbs and postcodes as described in [API Documentation](API_DOCUMENTATION.md)
+- Secured access to adding suburb and post code combinations as described in [API Documentation](API_DOCUMENTATION.md) including:
+  - happy day scenarios
+  - errors 

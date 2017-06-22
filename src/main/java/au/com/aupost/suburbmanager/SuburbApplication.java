@@ -9,6 +9,5 @@ public class SuburbApplication {
     public static void main(String[] args) {
         SpringApplication.run(SuburbApplication.class, args);
     }
-
     
 }
