@@ -5,12 +5,15 @@
 Returns paginated JSON data about all suburbs.
 
 * **URL**
+
   /suburbs
 
 * **Method:**
+
   `GET`
 
 *  **URL Params**
+
   None 
    
 * **Data Params**
