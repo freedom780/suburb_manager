@@ -94,4 +94,23 @@ public class CreatePostcodeTest extends PostCodeTest {
         assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
     }
         
+    @Test
+    public void returns400ErrorOnInvalidRequestWithBlankCategory() throws URISyntaxException {
+
+        // setup fixture
+        String jwtAccessToken = jwtAccessTokenRetriever.obtainJwtTokenThroughFullOAuthFlow(baseUrl.toString());
+
+        String requestWithBlankCategory = "{\"code\": \"" + NEW_POST_CODE_2000 + "\", \"category\": \"" + "" + "}";
+        
+        RequestEntity<String> requestEntity = RequestEntity.post(new URI(buildPostcodesServiceUrl()))
+                .header("Authorization", "Bearer " + jwtAccessToken)
+                .contentType(MediaType.APPLICATION_JSON).body(requestWithBlankCategory);
+
+        // exercise SUT
+        ResponseEntity<Resources<PostCode>> response = template.exchange(buildPostcodesServiceUrl(), HttpMethod.POST, requestEntity, createTypeReference());
+
+        // verify
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+    }
+
 }
