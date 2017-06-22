@@ -28,6 +28,10 @@ Returns paginated JSON data set for all suburbs.
 
   None
 
+*  **Security**
+
+  None 
+
 * **Success Response:**
   * **Code:** 200
    **Content:** 

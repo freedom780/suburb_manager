@@ -1,4 +1,4 @@
-#Find By Post Code API
+# Find By Post Code API
 ----
 Returns all suburbs matching a specified post code.
 
@@ -19,6 +19,10 @@ Returns all suburbs matching a specified post code.
 
   None
 
+*  **Security**
+
+  None 
+  
 * **Success Response:**
   * **Code:** 200
   
