@@ -1,5 +1,5 @@
 # Find By Post Code API
-----
+
 Returns all suburbs matching a specified post code.
 
 * **URL**
