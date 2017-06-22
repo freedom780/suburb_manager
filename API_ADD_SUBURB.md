@@ -12,21 +12,23 @@ Adds a suburb.
 
 *  **URL Params**
 
-  None 
+   None 
    
 * **Data Params**
 
-```json
-{
-  "name": "Warranwood",
-  "state": "VIC",
-  "postCode": "/postcodes/1"
-}
-```
+  ```json
+  {
+     "name": "Warranwood",
+     "state": "VIC",
+     "postCode": "/postcodes/1"
+   }
+   ```
   
   **Required:**
   `name=[string]`
+  
   `state=[string]`
+  
   `postCode=[reference to post code HATEOAS resource]`
   
 
