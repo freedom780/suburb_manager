@@ -26,6 +26,7 @@ public class PostCode {
     @Column(name = "code")
     private Integer code;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
     private PostCodeCategory category;

@@ -5,20 +5,10 @@ import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestCons
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.ONE_NEWLY_ADDED_POST_CODE;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.sameInstance;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail; 
 
 import org.junit.Before;
 import org.junit.Test;
@@ -83,4 +73,25 @@ public class CreatePostcodeTest extends PostCodeTest {
         assertThat(secondResponse.getStatusCode(), equalTo(HttpStatus.CONFLICT));
     }
 
+    
+    @Test
+    public void returns400ErrorOnInvalidRequestWithoutCategory() throws URISyntaxException {
+
+        // setup fixture
+        String jwtAccessToken = jwtAccessTokenRetriever.obtainJwtTokenThroughFullOAuthFlow(baseUrl.toString());
+
+        PostCode postCode = new PostCode();
+        postCode.setCode(NEW_POST_CODE_2000);
+        
+        RequestEntity<PostCode> requestEntity = RequestEntity.post(new URI(buildPostcodesServiceUrl()))
+                .header("Authorization", "Bearer " + jwtAccessToken)
+                .contentType(MediaType.APPLICATION_JSON).body(postCode);
+
+        // exercise SUT
+        ResponseEntity<Resources<PostCode>> response = template.exchange(buildPostcodesServiceUrl(), HttpMethod.POST, requestEntity, createTypeReference());
+
+        // verify
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+    }
+        
 }

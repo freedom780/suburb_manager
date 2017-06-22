@@ -30,6 +30,7 @@ public class Suburb {
     @JoinColumn(name="post_code_id", nullable = false)
     private PostCode postCode;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "state_territory")
     private State state;

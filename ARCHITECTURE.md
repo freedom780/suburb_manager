@@ -1,13 +1,15 @@
 ## Technology
 The following frameworks and technologies have been selected to implement the application
+
 | Framework / Technology | Description |
 | ------ | ------ |
 | Spring Boot | Spring Application Framework in addition to Spring Boot has been selected for streamlining the development process|
 | Spring Rest Data |  This Spring module is used to minimise the amount of boilerplate code around REST API endpoints and persistence  |
+| Spring Security + Spring OAuth|  Security Framework |
 | HATEOAS (Hypermedia as the Engine of Application State)  |  For stricter REST compliance including navigation and pagination and more control on the server side |
 |JWT (JSON web token) format | Refer to [official documentation](https://tools.ietf.org/html/rfc7519) |
 |JPA / Hibernate| Persistence |
-
+|JSR - 303 Bean Validation / Validation technology at the domain model class field level |
 
 ## Security
 The OAuth 2.0 standard has been selected for securing API for authorised access from mobile applications:
@@ -22,7 +24,7 @@ The end-to-end flow is depicted below.
 The API application has co-located Authorisation Server and Resource Server.
 
 ```
-      +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+       +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
        |          User Device          |
        |                               |
        | +--------------------------+  | (5) Authorization  +---------------+
@@ -48,3 +50,7 @@ The API application has co-located Authorisation Server and Resource Server.
        +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
 ```
 
+## Validation
+Validation is implemented using 
+
+## Error Handling

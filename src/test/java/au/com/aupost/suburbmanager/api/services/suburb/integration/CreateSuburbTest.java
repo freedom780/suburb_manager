@@ -20,8 +20,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
-import au.com.aupost.suburbmanager.model.PostCode;
-import au.com.aupost.suburbmanager.model.PostCodeCategory;
 import au.com.aupost.suburbmanager.model.State;
 import au.com.aupost.suburbmanager.model.Suburb;
 
@@ -80,4 +78,24 @@ public class CreateSuburbTest extends SuburbTest {
         assertThat(secondResponse.getStatusCode(), equalTo(HttpStatus.CONFLICT));
     }
 
+    @Test
+    public void returns400ErrorOnInvalidRequestWithouStateOrTerrotory() throws URISyntaxException {
+
+        // setup fixture
+        String jwtAccessToken = jwtAccessTokenRetriever.obtainJwtTokenThroughFullOAuthFlow(baseUrl.toString());
+
+        String requestWithoutStateOrTerritory = "{\"name\": \"" + NEW_SUBURB_NAME + "\", \"postCode\": \"/postcodes/1\"}";
+        
+        RequestEntity<String> requestEntity = RequestEntity.post(new URI(buildSuburbsServiceUrl()))
+                .header("Authorization", "Bearer " + jwtAccessToken)
+                .contentType(MediaType.APPLICATION_JSON).body(requestWithoutStateOrTerritory);
+
+
+        // exercise SUT
+        ResponseEntity<Resources<Suburb>> response = template.exchange(buildSuburbsServiceUrl(), HttpMethod.POST, requestEntity, createTypeReference());
+
+        // verify
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+    }
+    
 }
