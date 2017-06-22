@@ -3,13 +3,14 @@ The following frameworks and technologies have been selected to implement the ap
 
 | Framework / Technology | Description |
 | ------ | ------ |
-| Spring Boot | Spring Application Framework in addition to Spring Boot has been selected for streamlining the development process|
-| Spring Rest Data |  This Spring module is used to minimise the amount of boilerplate code around REST API endpoints and persistence  |
-| Spring Security + Spring OAuth|  Security Framework |
-| HATEOAS (Hypermedia as the Engine of Application State)  |  For stricter REST compliance including navigation and pagination and more control on the server side |
+| [Spring Boot](https://projects.spring.io/spring-boot/) | Spring Application Framework in addition to Spring Boot has been selected for streamlining the development process|
+| [Spring Data Rest](http://projects.spring.io/spring-data-rest/) |  This Spring module is used to minimise the amount of boilerplate code around REST API endpoints and persistence  |
+| [Spring Security](https://projects.spring.io/spring-security/) + [Spring OAuth] (http://projects.spring.io/spring-security-oauth/)|  Security Framework |
+| [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) (Hypermedia as the Engine of Application State)  |  For stricter REST compliance including navigation and pagination and more control on the server side |
 |JWT (JSON web token) format | Refer to [official documentation](https://tools.ietf.org/html/rfc7519) |
-|JPA / Hibernate| Persistence |
-|JSR - 303 Bean Validation | Validation technology at the domain model class field level |
+|[JPA](http://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html) / [Hibernate](http://hibernate.org/)| Persistence |
+|[JSR - 303](http://beanvalidation.org/1.0/spec/) Bean Validation | Validation technology at the domain model class field level |
+|Error & Exception Handling| Spring ResponseEntityExceptionHandler and ControllerAdvice features are used for fine-tuning error and exception handling |
 
 ## Security
 The OAuth 2.0 standard has been selected for securing API for authorised access from mobile applications:
@@ -50,7 +51,3 @@ The API application has co-located Authorisation Server and Resource Server.
        +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
 ```
 
-## Validation
-Validation is implemented using 
-
-## Error Handling
