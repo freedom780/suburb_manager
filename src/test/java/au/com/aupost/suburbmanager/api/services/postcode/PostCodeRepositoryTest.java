@@ -22,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import au.com.aupost.suburbmanager.api.services.PostCodeRepository;
 import au.com.aupost.suburbmanager.model.PostCode;
+import au.com.aupost.suburbmanager.model.PostCodeCategory;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -79,7 +80,7 @@ public class PostCodeRepositoryTest {
     public void save() {
         
         // setup fixture
-        PostCode postCode = new PostCode(NEW_POST_CODE);
+        PostCode postCode = new PostCode(NEW_POST_CODE, PostCodeCategory.DELIVERY);
 
         // exercise SUT
         postCodeRepository.save(postCode);

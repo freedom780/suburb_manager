@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,18 +25,22 @@ public class PostCode {
     @NotNull
     @Column(name = "code")
     private Integer code;
-    
-    @OneToMany(mappedBy="postCode")
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
+    private PostCodeCategory category;
+
+    @OneToMany(mappedBy = "postCode")
     private List<Suburb> suburbs;
-    
 
     public PostCode() {
         super();
     }
 
-    public PostCode(Integer code) {
+    public PostCode(Integer code, PostCodeCategory category) {
         super();
         this.code = code;
+        this.category = category;
     }
 
     public long getId() {
@@ -57,10 +63,17 @@ public class PostCode {
         return suburbs;
     }
 
+    public PostCodeCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(PostCodeCategory category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "PostCode [id=" + id + ", code=" + code + "]";
     }
- 
-    
+
 }

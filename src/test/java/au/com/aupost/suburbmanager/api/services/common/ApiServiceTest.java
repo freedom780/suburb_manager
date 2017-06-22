@@ -11,6 +11,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import au.com.aupost.suburbmanager.api.services.oauth.OAuthAccessTokenRetriever;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
@@ -26,6 +28,8 @@ public abstract class ApiServiceTest {
     @Autowired
     protected TestRestTemplate template;
 
+    protected OAuthAccessTokenRetriever jwtAccessTokenRetriever = new OAuthAccessTokenRetriever();
+    
     protected void buildBaseUrl() throws MalformedURLException {
         this.baseUrl = new URL("http://localhost:" + port + "/");
     }

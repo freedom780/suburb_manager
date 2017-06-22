@@ -1,5 +1,6 @@
 package au.com.aupost.suburbmanager.api.services.postcode;
 
+
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.NEW_POST_CODE;
 import static au.com.aupost.suburbmanager.api.services.postcode.PostcodeTestConstants.ONE_NEWLY_ADDED_POST_CODE;
 import static org.hamcrest.Matchers.equalTo;
@@ -18,6 +19,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
 import au.com.aupost.suburbmanager.model.PostCode;
+import au.com.aupost.suburbmanager.model.PostCodeCategory;
 
 public class CreatePostcodeTest extends PostCodeTest {
 
@@ -30,13 +32,16 @@ public class CreatePostcodeTest extends PostCodeTest {
     public void createPostcode() throws URISyntaxException {
 
         // setup fixture
-        String suburbsServiceUrl = buildPostcodesServiceUrl();
+        String jwtAccessToken = jwtAccessTokenRetriever.obtainJwtTokenThroughFullOAuthFlow(baseUrl.toString());
+
         RequestEntity<PostCode> requestEntity = RequestEntity.post(new URI(buildPostcodesServiceUrl()))
-                .contentType(MediaType.APPLICATION_JSON).body(new PostCode(NEW_POST_CODE));
+                .header("Authorization", "Bearer " + jwtAccessToken)
+                .contentType(MediaType.APPLICATION_JSON).body(new PostCode(NEW_POST_CODE, PostCodeCategory.DELIVERY));
+                
         long numberOfPostcodesBefore = postCodeRepository.count();
 
         // exercise SUT
-        ResponseEntity<Resources<PostCode>> entity = template.exchange(suburbsServiceUrl, HttpMethod.POST, requestEntity, createTypeReference());
+        ResponseEntity<Resources<PostCode>> entity = template.exchange(buildPostcodesServiceUrl(), HttpMethod.POST, requestEntity, createTypeReference());
         
         // verify
         Link selfLink = getSelfLinkFromCreateResponse(entity);

@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
+import au.com.aupost.suburbmanager.model.State;
 import au.com.aupost.suburbmanager.model.Suburb;
 
 public class CreateSuburbTest extends SuburbTest {
@@ -31,14 +32,20 @@ public class CreateSuburbTest extends SuburbTest {
 
         // setup fixture
         String suburbsServiceUrl = buildSuburbsServiceUrl();
-        String request = "{\"name\": \"" + NEW_SUBURB_NAME + "\", \"postCode\": \"/postcodes/1\"}";
+        
+        String jwtAccessToken = jwtAccessTokenRetriever.obtainJwtTokenThroughFullOAuthFlow(baseUrl.toString());
+        
+        String request = "{\"name\": \"" + NEW_SUBURB_NAME + "\", \"state\": \"" + State.VIC + "\", \"postCode\": \"/postcodes/1\"}";
+
         RequestEntity<String> requestEntity = RequestEntity.post(new URI(buildSuburbsServiceUrl()))
+                .header("Authorization", "Bearer " + jwtAccessToken)
                 .contentType(MediaType.APPLICATION_JSON).body(request);
+        
         long numberOfSuburbsBefore = suburbRepository.count();
 
         // exercise SUT
-        ResponseEntity<Resources<Suburb>> entity = template.exchange(suburbsServiceUrl, HttpMethod.POST, requestEntity,
-                createTypeReference());
+        ResponseEntity<Resources<Suburb>> entity = 
+                template.exchange(suburbsServiceUrl, HttpMethod.POST, requestEntity, createTypeReference());
 
         // verify
         Link selfLink = getSelfLinkFromCreateResponse(entity);

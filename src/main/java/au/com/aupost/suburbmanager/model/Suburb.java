@@ -2,6 +2,8 @@ package au.com.aupost.suburbmanager.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,14 +30,19 @@ public class Suburb {
     @JoinColumn(name="post_code_id", nullable = false)
     private PostCode postCode;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "state_territory")
+    private State state;
+    
     public Suburb() {
         super();
     }
      
-    public Suburb(String name, PostCode postCode) {
+    public Suburb(String name, PostCode postCode, State state) {
         super();
         this.name = name;
         this.postCode = postCode;
+        this.state = state;
     }
 
     public long getId() {
@@ -60,6 +67,14 @@ public class Suburb {
 
     public void setPostCode(PostCode postCode) {
         this.postCode = postCode;
+    }
+    
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
     @Override

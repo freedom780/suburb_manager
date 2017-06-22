@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-public class ApplicationRepositoryRestConfigurerAdapter extends RepositoryRestConfigurerAdapter {
+public class RestConfigurerAdapter extends RepositoryRestConfigurerAdapter {
 
     @Bean
     @Primary

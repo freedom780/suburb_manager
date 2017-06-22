@@ -29,7 +29,7 @@ public class SuburbTest {
         
         // setup fixture
         PostCode postCode = createPostCode(POST_CODE);
-        Suburb suburb = new Suburb(SUBURB_NAME, postCode);
+        Suburb suburb = new Suburb(SUBURB_NAME, postCode, State.VIC);
         suburb.setId(SUBURB_ID);
         
         // exercise SUT
@@ -41,7 +41,7 @@ public class SuburbTest {
 
 
     private PostCode createPostCode(int code) {
-        return new PostCode(code);
+        return new PostCode(code, PostCodeCategory.DELIVERY);
     }
 
 }

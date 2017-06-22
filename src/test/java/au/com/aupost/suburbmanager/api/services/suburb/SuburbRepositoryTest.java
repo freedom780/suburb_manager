@@ -24,6 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import au.com.aupost.suburbmanager.api.services.PostCodeRepository;
 import au.com.aupost.suburbmanager.api.services.SuburbRepository;
 import au.com.aupost.suburbmanager.model.PostCode;
+import au.com.aupost.suburbmanager.model.State;
 import au.com.aupost.suburbmanager.model.Suburb;
 
 @RunWith(SpringRunner.class)
@@ -61,7 +62,7 @@ public class SuburbRepositoryTest {
         
         // setup fixture
         PostCode postCode = postCodeRepository.findByCode(NEW_SUBURB_POST_CODE);
-        Suburb suburb = new Suburb(NEW_SUBURB_NAME, postCode);
+        Suburb suburb = new Suburb(NEW_SUBURB_NAME, postCode, State.VIC);
 
         // exercise SUT
         suburbRepository.save(suburb);
