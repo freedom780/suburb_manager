@@ -17,7 +17,7 @@ Adds a suburb.
 * **Data Params**
 
 ```json
-  {
+   {
      "name": "Warranwood",
      "state": "VIC",
      "postCode": "/postcodes/1"
@@ -56,7 +56,7 @@ Adds a suburb.
 }
 ```
  
-* **Error Response:**
+* **Error Response 400:**
   
   * **Code:** 400 BAD REQUEST
 
@@ -69,11 +69,28 @@ Adds a suburb.
 }
 ```
 
+
+* **Error Response 401:**
+  
+  * **Code:** 401 UNAUTHORIZED
+
+    **Content**
+```json
+{
+    "timestamp": 1498176214518,
+    "status": 401,
+    "error": "Unauthorized",
+    "message": "Full authentication is required to access this resource",
+    "path": "/suburbs"
+}   
+```
+
+
 * **Sample Call:**
   ```
     POST /suburbs
     {
- 		"name": "Warranwood1",
+ 		"name": "Warranwood",
   		"state": "VIC",
   		"postCode": "/postcodes/1"
     }
