@@ -6,14 +6,17 @@ Adds a post code.
 
   /postcodes
 
+
 * **Method:**
 
   `POST`
+
 
 *  **URL Params**
 
    None 
    
+
 * **Data Params**
 
 ```json
@@ -30,10 +33,12 @@ Adds a post code.
   `category=[string]`
   
 
+
 *  **Security**
    - Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
    - Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
   
+
 
 * **Success Response:**
   * **Code:** 200
@@ -58,6 +63,7 @@ Adds a post code.
 }
 ```
  
+
 * **Error Response 400:**
   
   * **Code:** 400 BAD REQUEST
@@ -70,6 +76,7 @@ Adds a post code.
     "errorMessage": "Data integrity violation error. Please contact an administrator and quote '2e482454-5148-4bf4-9ab7-84c7f65b318f'"
 }
 ```
+
 
 
 * **Error Response 401:**
@@ -86,6 +93,7 @@ Adds a post code.
     "path": "/postcodes"
 }
 ```
+
 
 
 * **Sample Call:**

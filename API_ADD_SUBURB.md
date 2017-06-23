@@ -6,14 +6,17 @@ Adds a suburb.
 
   /suburbs
 
+
 * **Method:**
 
   `POST`
+
 
 *  **URL Params**
 
    None 
    
+
 * **Data Params**
 
 ```json
@@ -33,9 +36,11 @@ Adds a suburb.
   `postCode=[reference to post code HATEOAS resource]`
   
 
+
 *  **Security**
    - Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
    - Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
+
 
 
 * **Success Response:**
@@ -61,6 +66,7 @@ Adds a suburb.
 }
 ```
  
+
 * **Error Response 400:**
   
   * **Code:** 400 BAD REQUEST
@@ -89,6 +95,7 @@ Adds a suburb.
     "path": "/suburbs"
 }   
 ```
+
 
 
 * **Sample Call:**
