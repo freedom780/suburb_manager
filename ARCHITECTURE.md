@@ -17,7 +17,7 @@ The OAuth 2.0 standard has been selected for securing API for authorised access 
 * **OAuth Authorisation Code flow without client secret** has been chosen as stipulated from the official document [OAuth 2.0 for Native Apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12)
 * **PKCE mechanism not introduced** due to sheer amount of work and lack of immediate support from the Spring Security OAuth module (refer to the [open ticket](https://github.com/spring-projects/spring-security-oauth/pull/675) )
 * **Full stack of automated end-to-end integration tests** is available in the source code
-* 
+
 
 ## Authorisation Code Flow
 The end-to-end flow is depicted below.
