@@ -33,6 +33,11 @@ Adds a suburb.
   `postCode=[reference to post code HATEOAS resource]`
   
 
+*  **Security**
+- Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
+- Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
+
+
 * **Success Response:**
   * **Code:** 200
   

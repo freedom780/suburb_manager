@@ -29,6 +29,10 @@ Adds a post code.
   
   `category=[string]`
   
+
+*  **Security**
+- Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
+- Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
   
 
 * **Success Response:**
@@ -92,7 +96,7 @@ Adds a post code.
    
 ```json
 {
-	"code" : 2000,
-    "category" : "DELIVERY"
+  "code": 2000,
+  "category": "DELIVERY"
 }
 ```
