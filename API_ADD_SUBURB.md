@@ -34,8 +34,8 @@ Adds a suburb.
   
 
 *  **Security**
-- Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
-- Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
+   - Authorization Server Endpoint for retrieving authorization code and exchanging for {JWT_ACCESS_TOKEN}: /oauth/authorize
+   - Authorization header: "Authorization", "Bearer {JWT_ACCESS_TOKEN}"   
 
 
 * **Success Response:**
