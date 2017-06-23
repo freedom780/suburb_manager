@@ -87,11 +87,15 @@ Adds a suburb.
 
 
 * **Sample Call:**
-  ```
+    
+    ```
     POST /suburbs
+    ```
+   
+```json
     {
  		"name": "Warranwood",
   		"state": "VIC",
   		"postCode": "/postcodes/1"
     }
-  ```
+```
