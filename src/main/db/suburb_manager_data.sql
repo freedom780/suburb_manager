@@ -73,5 +73,5 @@ INSERT INTO suburbs (name, state_territory, post_code_id) VALUES('Melbourne', 'V
 
 INSERT INTO suburbs (name, state_territory, post_code_id) VALUES('East Melbourne', 'VIC', 31);
 INSERT INTO suburbs (name, state_territory, post_code_id) VALUES('West Melbourne', 'VIC', 32);
-INSERT INTO suburbs (name, state_territory, post_code_id) VALUES('Soutbank', 'VIC', 33);
+INSERT INTO suburbs (name, state_territory, post_code_id) VALUES('Southbank', 'VIC', 33);
 

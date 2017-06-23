@@ -118,4 +118,5 @@ public class CreateSuburbTest extends SuburbTest {
         assertThat(response.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
     }
 
+
 }
