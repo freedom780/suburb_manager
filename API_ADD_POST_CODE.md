@@ -4,7 +4,7 @@ Adds a post code.
 
 * **URL**
 
-  /suburbs
+  /postcodes
 
 * **Method:**
 
@@ -18,8 +18,8 @@ Adds a post code.
 
 ```json
 {
-	"code" : 2000,
-    "category" : "DELIVERY"
+  "code": 2000,
+  "category": "DELIVERY"
 }
 ```
   
